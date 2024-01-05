@@ -1,3 +1,4 @@
+var multiHashing = require('multi-hashing');
 /*
  *
  * Algorithms (Updated)
@@ -21,6 +22,16 @@ const Algorithms = {
       };
     }
   },
+  // Aurum Algorithm
+  'aurum': {
+    multiplier: Math.pow(2, 12),
+    diff: parseInt('0x00000000ffff0000000000000000000000000000000000000000000000000000'),
+    hash: function () {
+        return function () {
+            return multiHashing.aurum.apply(this, arguments);
+        }
+    }
+},
 
   // Blake Algorithm
   'blake': {
